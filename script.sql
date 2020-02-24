@@ -1,3 +1,4 @@
+№№1-3
 DROP DATABASE IF EXISTS example;
 CREATE DATABASE example;
 USE example;
@@ -12,3 +13,6 @@ CREATE DATABASE sample;
 
 mysqldump -u root -p example > example.sql
 mysql -u root -p sample < example.sql
+
+№4
+mysqldump -u root -p mysql help_keyword --opt --where='1 LIMIT 100' > help_keyword_100.sql
