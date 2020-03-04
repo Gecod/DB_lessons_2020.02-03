@@ -1,4 +1,4 @@
--- Таблица лайков (таблица репостов аналогичная)
+-- РўР°Р±Р»РёС†Р° Р»Р°Р№РєРѕРІ (С‚Р°Р±Р»РёС†Р° СЂРµРїРѕСЃС‚РѕРІ Р°РЅР°Р»РѕРіРёС‡РЅР°СЏ)
 CREATE TABLE `likes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `subject_id` int(10) unsigned NOT NULL,
@@ -8,14 +8,14 @@ CREATE TABLE `likes` (
   PRIMARY KEY (`id`),
 );
 
--- Таблица того, что лайкается (репостится)
+-- РўР°Р±Р»РёС†Р° С‚РѕРіРѕ, С‡С‚Рѕ Р»Р°Р№РєР°РµС‚СЃСЏ (СЂРµРїРѕСЃС‚РёС‚СЃСЏ)
 CREATE TABLE `subjects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `subject_type` varchar(150) NOT NULL,
   PRIMARY KEY (`id`),
 );
 
--- Добавляем в предыдущую таблицу типы объектов, которые лайкаются (репостятся)
+-- Р”РѕР±Р°РІР»СЏРµРј РІ РїСЂРµРґС‹РґСѓС‰СѓСЋ С‚Р°Р±Р»РёС†Сѓ С‚РёРїС‹ РѕР±СЉРµРєС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ Р»Р°Р№РєР°СЋС‚СЃСЏ (СЂРµРїРѕСЃС‚СЏС‚СЃСЏ)
 INSERT INTO `subjects` (`subject_type`) VALUES
   (`photo`),
   (`video`),
@@ -23,7 +23,7 @@ INSERT INTO `subjects` (`subject_type`) VALUES
   (`post`)
 ;
 
--- Таблица Постов (на стене Пользователей, Сообществ)
+-- РўР°Р±Р»РёС†Р° РџРѕСЃС‚РѕРІ (РЅР° СЃС‚РµРЅРµ РџРѕР»СЊР·РѕРІР°С‚РµР»РµР№, РЎРѕРѕР±С‰РµСЃС‚РІ)
 CREATE TABLE `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
   `user_id` int(10) unsigned NOT NULL, 
