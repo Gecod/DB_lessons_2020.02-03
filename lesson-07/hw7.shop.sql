@@ -104,7 +104,8 @@ values
   (4, 2, 5),
   (2, 7, 2),
   (2, 3, 1),
-  (2, 2, 2);
+  (2, 2, 2),
+  (5, 5, 5);
 
 DROP TABLE IF EXISTS discounts;
 CREATE TABLE discounts (
