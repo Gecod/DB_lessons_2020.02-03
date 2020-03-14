@@ -1,8 +1,8 @@
-/* 1. Составьте список пользователей users, которые осуществили хотя бы один заказ 
- * orders в интернет магазине. */
+/* 1. РЎРѕСЃС‚Р°РІСЊС‚Рµ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ users, РєРѕС‚РѕСЂС‹Рµ РѕСЃСѓС‰РµСЃС‚РІРёР»Рё С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ Р·Р°РєР°Р· 
+ * orders РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ. */
 
 select 
-  users.name, count(*) as 'Количество заказов'
+  users.name, count(*) as 'РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РєР°Р·РѕРІ'
 from 
   users 
 join 
@@ -12,7 +12,7 @@ on
 group by users.id
 ;
 
-/* 2. Выведите список товаров products и разделов catalogs, который соответствует товару.*/
+/* 2. Р’С‹РІРµРґРёС‚Рµ СЃРїРёСЃРѕРє С‚РѕРІР°СЂРѕРІ products Рё СЂР°Р·РґРµР»РѕРІ catalogs, РєРѕС‚РѕСЂС‹Р№ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ С‚РѕРІР°СЂСѓ.*/
 
 select 
   p.name as product, c.name as `catalog` 
@@ -24,22 +24,22 @@ on
   c.id = p.catalog_id
 ; 
 
-/* 3. Пусть имеется таблица рейсов flights (id, from, to) и таблица городов cities 
- * (label, name). Поля from, to и label содержат английские названия городов, 
- * поле name — русское. Выведите список рейсов flights с русскими названиями городов.*/
+/* 3. РџСѓСЃС‚СЊ РёРјРµРµС‚СЃСЏ С‚Р°Р±Р»РёС†Р° СЂРµР№СЃРѕРІ flights (id, from, to) Рё С‚Р°Р±Р»РёС†Р° РіРѕСЂРѕРґРѕРІ cities 
+ * (label, name). РџРѕР»СЏ from, to Рё label СЃРѕРґРµСЂР¶Р°С‚ Р°РЅРіР»РёР№СЃРєРёРµ РЅР°Р·РІР°РЅРёСЏ РіРѕСЂРѕРґРѕРІ, 
+ * РїРѕР»Рµ name вЂ” СЂСѓСЃСЃРєРѕРµ. Р’С‹РІРµРґРёС‚Рµ СЃРїРёСЃРѕРє СЂРµР№СЃРѕРІ flights СЃ СЂСѓСЃСЃРєРёРјРё РЅР°Р·РІР°РЅРёСЏРјРё РіРѕСЂРѕРґРѕРІ.*/
 
 drop table if exists flights;
 create table flights ( 
   id SERIAL PRIMARY KEY, 
-  `from` VARCHAR(255) COMMENT 'Город отправления', 
-  `to` VARCHAR(255) COMMENT 'Город прибытия' 
+  `from` VARCHAR(255) COMMENT 'Р“РѕСЂРѕРґ РѕС‚РїСЂР°РІР»РµРЅРёСЏ', 
+  `to` VARCHAR(255) COMMENT 'Р“РѕСЂРѕРґ РїСЂРёР±С‹С‚РёСЏ' 
 );
 
 drop table if exists cities;
 create table cities ( 
   id SERIAL PRIMARY KEY, 
-  `label` VARCHAR(255) COMMENT 'Метка города по-английски', 
-  `name` VARCHAR(255) COMMENT 'Название города по-русски' 
+  `label` VARCHAR(255) COMMENT 'РњРµС‚РєР° РіРѕСЂРѕРґР° РїРѕ-Р°РЅРіР»РёР№СЃРєРё', 
+  `name` VARCHAR(255) COMMENT 'РќР°Р·РІР°РЅРёРµ РіРѕСЂРѕРґР° РїРѕ-СЂСѓСЃСЃРєРё' 
 );
 
 INSERT INTO flights (`from`, `to`) VALUES
@@ -50,11 +50,11 @@ INSERT INTO flights (`from`, `to`) VALUES
   ('moscow', 'kazan');
 
 INSERT INTO cities (`label`, `name`) VALUES
-  ('moscow', 'Москва'),
-  ('irkutsk', 'Иркутск'),
-  ('novgorod', 'Новгород'),
-  ('kazan', 'Казань'),
-  ('omsk', 'Омск');
+  ('moscow', 'РњРѕСЃРєРІР°'),
+  ('irkutsk', 'РСЂРєСѓС‚СЃРє'),
+  ('novgorod', 'РќРѕРІРіРѕСЂРѕРґ'),
+  ('kazan', 'РљР°Р·Р°РЅСЊ'),
+  ('omsk', 'РћРјСЃРє');
 
 select * from flights;
 select * from cities;
@@ -72,7 +72,7 @@ on
 order by flights.id 
 ;
 
--- ИЛИ --
+-- РР›Р --
 
 select 
   flights.id, 
